@@ -1,0 +1,7 @@
+node_modules/
+*.db
+uploads/
+*.pdf
+.env
+.env.*
+npm-debug.log*

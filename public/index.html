@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Notas Fiscais - Costura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>📄 Gestor de Notas Fiscais</h1>
+
+    <!-- Área de Upload -->
+    <div class="card-upload">
+      <h3>Importar Pasta de Notas Fiscais (PDFs)</h3>
+      <form id="formUpload">
+        <input type="file" id="arquivoPdf" accept="application/pdf" webkitdirectory multiple required><br>
+        <button type="submit" class="btn">🚀 Enviar e Importar Pasta</button>
+      </form>
+      <div id="mensagemStatus" class="status"></div>
+    </div>
+
+    <!-- Resumo de Totais -->
+    <div class="resumo">
+      <div id="totalNotas">Qtd Notas: 0</div>
+      <div id="valorAcumulado">Total Acumulado: R$ 0,00</div>
+    </div>
+
+    <!-- Tabela Responsiva de Notas Fiscais -->
+    <div class="header-tabela">
+      <h2>Notas Cadastradas</h2>
+      <button id="btnExcluirSelecionados" class="btn-excluir-massa" style="display: none;" onclick="excluirEmMassa()">
+        🗑️ Excluir Selecionados (<span id="qtdSelecionados">0</span>)
+      </button>
+    </div>
+
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 40px; text-align: center;">
+              <input type="checkbox" id="checkTodos" onchange="alternarTodos(this)">
+            </th>
+            <th>ID</th>
+            <th>Nº Nota</th>
+            <th>CFOP / Tipo</th>
+            <th>Data Emissão</th>
+            <th>Cliente / Destinatário</th>
+            <th>Descrição</th>
+            <th>Valor Total</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaNotas">
+          <tr>
+            <td colspan="9" style="text-align:center;">Carregando notas...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

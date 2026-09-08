@@ -1,0 +1,231 @@
+/* public/estilo.css */
+* { 
+  box-sizing: border-box; 
+  font-family: Arial, sans-serif; 
+}
+
+body { 
+  background-color: #f4f6f9; 
+  margin: 0; 
+  padding: 15px; 
+  color: #333; 
+}
+
+.container { 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  background: #fff; 
+  padding: 20px; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+}
+
+h1 { 
+  color: #2c3e50; 
+  border-bottom: 2px solid #3498db; 
+  padding-bottom: 10px; 
+  margin-top: 0; 
+  font-size: 1.6rem;
+}
+
+/* Área de Upload */
+.card-upload { 
+  background: #ebf5fb; 
+  border: 2px dashed #3498db; 
+  padding: 20px; 
+  border-radius: 6px; 
+  text-align: center; 
+  margin-bottom: 25px; 
+}
+
+.card-upload input[type="file"] { 
+  margin: 10px 0; 
+  max-width: 100%;
+}
+
+.btn { 
+  background: #27ae60; 
+  color: #fff; 
+  border: none; 
+  padding: 12px 20px; 
+  font-size: 16px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  transition: 0.2s; 
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn:hover { 
+  background: #219150; 
+}
+
+/* Resumo de Totais */
+.resumo { 
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between; 
+  background: #2c3e50; 
+  color: #fff; 
+  padding: 15px 20px; 
+  border-radius: 6px; 
+  margin-bottom: 20px; 
+  gap: 10px;
+}
+
+.resumo div { 
+  font-size: 1.1rem; 
+  font-weight: bold; 
+}
+
+/* Tabela Responsiva */
+.tabela-container {
+  width: 100%;
+  overflow-x: auto; /* Adiciona barra de rolagem horizontal em telas pequenas */
+  -webkit-overflow-scrolling: touch;
+}
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-top: 10px; 
+  min-width: 600px; /* Garante que a tabela não esmague no celular */
+}
+
+th, td { 
+  border: 1px solid #ddd; 
+  padding: 10px 12px; 
+  text-align: left; 
+  font-size: 0.95rem;
+}
+
+th { 
+  background-color: #3498db; 
+  color: white; 
+}
+
+tr:nth-child(even) { 
+  background-color: #f9f9f9; 
+}
+
+/* Mensagens de Status */
+.status { 
+  margin-top: 10px; 
+  font-weight: bold; 
+  word-break: break-word;
+}
+
+.sucesso { 
+  color: #27ae60; 
+}
+
+.erro { 
+  color: #c0392b; 
+}
+
+/* --- REGRAS PARA TELAS PEQUENAS (Celulares e Tablets) --- */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  /* Empilha os dados do resumo verticalmente no celular */
+  .resumo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Botão de Exclusão */
+.btn-excluir {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-excluir:hover {
+  background-color: #c0392b;
+}
+
+/* Cabeçalho com Exclusão em Massa */
+.header-tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-excluir-massa {
+  background-color: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-excluir-massa:hover {
+  background-color: #a93226;
+}
+
+/* Badges de CFOP */
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-cobranca {
+  background-color: #d4efdf;
+  color: #1e8449;
+}
+
+.badge-outros {
+  background-color: #eaf2f8;
+  color: #2471a3;
+}
+
+.btn-visualizar {
+  display: block;
+  background-color: #2980b9;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-visualizar:hover {
+  background-color: #1f618d;
+}
+
+.acoes-nota {
+  min-width: 105px;
+  white-space: normal;
+}
+
+.acoes-nota .btn-excluir {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+}

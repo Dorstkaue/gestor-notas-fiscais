@@ -1,0 +1,135 @@
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Card de Autenticação (Login / Cadastro) */
+.card-auth {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+}
+
+.card-auth h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-auth {
+  width: 100%;
+  background-color: #27ae60;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-auth:hover {
+  background-color: #219150;
+}
+
+.btn-cadastrar {
+  background-color: #2980b9;
+}
+
+.btn-cadastrar:hover {
+  background-color: #1f618d;
+}
+
+.troca-form {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.troca-form a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mensagem-erro {
+  color: #c0392b;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Estilos de Badges e Tabela */
+.header-tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-excluir-massa {
+  background-color: #c0392b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-excluir-massa:hover {
+  background-color: #a93226;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-cobranca {
+  background-color: #d4efdf;
+  color: #1e8449;
+}
+
+.badge-outros {
+  background-color: #eaf2f8;
+  color: #2471a3;
+}

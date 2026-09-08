@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Gestor de Notas Fiscais</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="card-auth">
+    <!-- Formulário de Login -->
+    <div id="boxLogin">
+      <h2>🔐 Entrar no Sistema</h2>
+      <form id="formLogin">
+        <div class="form-group">
+          <label for="loginNome">Nome de Usuário</label>
+          <input type="text" id="loginNome" placeholder="Ex: Mãe ou Tia Maria" required>
+        </div>
+        <div class="form-group">
+          <label for="loginSenha">Senha</label>
+          <input type="password" id="loginSenha" required>
+        </div>
+        <button type="submit" class="btn-auth">Entrar</button>
+      </form>
+      <div class="troca-form">
+        Não tem conta? <a href="#" onclick="mostrarCadastro(true)">Cadastre-se</a>
+      </div>
+    </div>
+
+    <!-- Formulário de Cadastro -->
+    <div id="boxCadastro" style="display: none;">
+      <h2>👤 Criar Conta</h2>
+      <form id="formCadastro">
+        <div class="form-group">
+          <label for="cadNome">Nome de Usuário</label>
+          <input type="text" id="cadNome" placeholder="Ex: Mãe ou Tia Maria" required>
+        </div>
+        <div class="form-group">
+          <label for="cadSenha">Senha</label>
+          <input type="password" id="cadSenha" required>
+        </div>
+        <button type="submit" class="btn-auth btn-cadastrar">Cadastrar</button>
+      </form>
+      <div class="troca-form">
+        Já tem conta? <a href="#" onclick="mostrarCadastro(false)">Fazer Login</a>
+      </div>
+    </div>
+
+    <div id="mensagemAuth" class="mensagem-erro"></div>
+  </div>
+
+  <script>
+    function mostrarCadastro(exibir) {
+      document.getElementById('boxLogin').style.display = exibir ? 'none' : 'block';
+      document.getElementById('boxCadastro').style.display = exibir ? 'block' : 'none';
+      document.getElementById('mensagemAuth').innerText = '';
+    }
+
+    // Processa Login
+    document.getElementById('formLogin').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('loginNome').value;
+      const senha = document.getElementById('loginSenha').value;
+      const msg = document.getElementById('mensagemAuth');
+
+      try {
+        const resp = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, senha })
+        });
+
+        const dados = await resp.json();
+        if (resp.ok) {
+          localStorage.setItem('usuarioLogado', JSON.stringify(dados.usuario));
+          window.location.href = 'index.html';
+        } else {
+          msg.innerText = dados.erro || 'Erro ao realizar login.';
+        }
+      } catch (err) {
+        msg.innerText = 'Falha de conexão com o servidor.';
+      }
+    });
+
+    // Processa Cadastro
+    document.getElementById('formCadastro').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('cadNome').value;
+      const senha = document.getElementById('cadSenha').value;
+      const msg = document.getElementById('mensagemAuth');
+
+      try {
+        const resp = await fetch('/api/auth/cadastrar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, senha })
+        });
+
+        const dados = await resp.json();
+        if (resp.ok) {
+          localStorage.setItem('usuarioLogado', JSON.stringify(dados.usuario));
+          window.location.href = 'index.html';
+        } else {
+          msg.innerText = dados.erro || 'Erro ao cadastrar.';
+        }
+      } catch (err) {
+        msg.innerText = 'Falha de conexão com o servidor.';
+      }
+    });
+  </script>
+</body>
+</html>
